@@ -52,3 +52,18 @@ const NAMES = INVENTORS.map(INVENTOR => INVENTOR.first + " " + INVENTOR.last);
 console.log("------");
 
 
+// Array.prototype.sort()
+// 3. Sort the INVENTORS by birth date, oldest to youngest
+console.log("Array.prototype.sort()");
+//Version fléché
+// const BIRTH_SORT = INVENTORS.sort((a, b) => a.year - b.year)
+// Version simple
+const BIRTH_SORT = INVENTORS.sort(orderByBirth)
+function orderByBirth(a, b) {
+    //Le a.year doit toujours être inférieur au b.year
+    return a.year - b.year
+}
+console.log('BIRTH_SORT', BIRTH_SORT)
+console.log("------");
+
+
