@@ -38,3 +38,17 @@ console.log(BORN_IN_1500);
 console.log("------");
 
 
+// Array.prototype.map()
+// 2. Give us an array of the INVENTORS first and last names
+console.log("Array.prototype.map()");
+// Made in me
+const MAP_NAME = INVENTORS.map(firstAndLastName);
+function firstAndLastName(x) {
+    return [x.first, x.last].join(" ");
+}
+console.log(MAP_NAME);
+// Made in Tiffany
+const NAMES = INVENTORS.map(INVENTOR => INVENTOR.first + " " + INVENTOR.last);
+console.log("------");
+
+
