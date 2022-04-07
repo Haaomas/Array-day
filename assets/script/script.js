@@ -67,3 +67,35 @@ console.log('BIRTH_SORT', BIRTH_SORT)
 console.log("------");
 
 
+// Array.prototype.reduce()
+// 4. How many years did all the INVENTORS live all together?
+console.log("Array.prototype.reduce()");
+console.log("------");
+const initialValue = 0;
+const listYear = INVENTORS.map(INVENTOR => INVENTOR.passed - INVENTOR.year);
+console.log('listYear', listYear)
+let yearOfLife = listYear.reduce((previousValue, currentValue) => previousValue + currentValue,
+    initialValue
+);
+console.log('yearOfLife', yearOfLife)
+
+
+// 5. Sort the INVENTORS by years lived
+console.log("Sort the INVENTORS by years lived");
+console.log("------");
+
+// 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+// https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+console.log("Create a list of Boulevards in Paris that contain 'de' anywhere in the name");
+console.log("------");
+
+// 7. sort Exercise
+// Sort the PEOPLE alphabetically by last name
+console.log("Sort Exercise");
+console.log("------");
+
+// 8. Reduce Exercise
+// Sum up the instances of each of these
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+console.log("Reduce Exercise");
+console.log("------");
