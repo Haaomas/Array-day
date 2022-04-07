@@ -4,7 +4,6 @@ console.log("-----");
 
 //Beginning of the project
 console.log("Array Cardio Day 1");
-console.log("-----");
 
 // Some data we can work with
 const INVENTORS = [
@@ -42,10 +41,10 @@ console.log("------");
 // 2. Give us an array of the INVENTORS first and last names
 console.log("Array.prototype.map()");
 // Made in me
-const MAP_NAME = INVENTORS.map(firstAndLastName);
-function firstAndLastName(x) {
-    return [x.first, x.last].join(" ");
-}
+const MAP_NAME = INVENTORS.map((x) => [x.first, x.last].join(" "));
+// function firstAndLastName(x) {
+//     return [x.first, x.last].join(" ");
+// }
 console.log(MAP_NAME);
 // Made in Tiffany
 const NAMES = INVENTORS.map(INVENTOR => INVENTOR.first + " " + INVENTOR.last);
@@ -71,31 +70,40 @@ console.log("------");
 // 4. How many years did all the INVENTORS live all together?
 console.log("Array.prototype.reduce()");
 console.log("------");
-const initialValue = 0;
-const listYear = INVENTORS.map(INVENTOR => INVENTOR.passed - INVENTOR.year);
-console.log('listYear', listYear)
-let yearOfLife = listYear.reduce((previousValue, currentValue) => previousValue + currentValue,
-    initialValue
+const INITIAL_VALUE = 0;
+const YEARS_LIVED = INVENTORS.map(INVENTOR => INVENTOR.passed - INVENTOR.year);
+console.log('YEARS_LIVED', YEARS_LIVED)
+let yearOfLife = YEARS_LIVED.reduce((previousValue, currentValue) => previousValue + currentValue,
+    INITIAL_VALUE
 );
 console.log('yearOfLife', yearOfLife)
 
 
 // 5. Sort the INVENTORS by years lived
 console.log("Sort the INVENTORS by years lived");
+const SORT_YEARS_LIVED = INVENTORS.sort((a, b) => {
+    let aFull = a.passed - a.year
+    let bFull = b.passed - b.year
+    return aFull - bFull
+})
+console.log('SORT_YEARS_LIVED', SORT_YEARS_LIVED)
+//Classement uniquement par années s
+const ONLY_SORT_YEARS_LIVED = YEARS_LIVED.sort((a, b) => a - b)
+// console.log('ONLY_SORT_YEARS_LIVED', ONLY_SORT_YEARS_LIVED)
 console.log("------");
 
-// 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-// https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-console.log("Create a list of Boulevards in Paris that contain 'de' anywhere in the name");
-console.log("------");
-
-// 7. sort Exercise
+// 6. sort Exercise
 // Sort the PEOPLE alphabetically by last name
 console.log("Sort Exercise");
 console.log("------");
 
-// 8. Reduce Exercise
+// 7. Reduce Exercise
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
 console.log("Reduce Exercise");
 console.log("------");
+
+// // 8. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+// // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+// console.log("Create a list of Boulevards in Paris that contain 'de' anywhere in the name");
+// console.log("------");
