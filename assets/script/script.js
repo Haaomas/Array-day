@@ -73,10 +73,10 @@ console.log("------");
 const INITIAL_VALUE = 0;
 const YEARS_LIVED = INVENTORS.map(INVENTOR => INVENTOR.passed - INVENTOR.year);
 console.log('YEARS_LIVED', YEARS_LIVED)
-let yearOfLife = YEARS_LIVED.reduce((previousValue, currentValue) => previousValue + currentValue,
+const YEARS_TOGETHER = YEARS_LIVED.reduce((previousValue, currentValue) => previousValue + currentValue,
     INITIAL_VALUE
 );
-console.log('yearOfLife', yearOfLife)
+console.log('YEARS_TOGETHER', `Il ont vécu un total de ${YEARS_TOGETHER} ans`)
 
 
 // 5. Sort the INVENTORS by years lived
@@ -95,12 +95,41 @@ console.log("------");
 // 6. sort Exercise
 // Sort the PEOPLE alphabetically by last name
 console.log("Sort Exercise");
+let sortPeople = PEOPLE.sort();
+console.log('sortPeople', sortPeople)
+
+// // 7. sort Exercise (Pas compris pourquoi du comment)
+// // Sort the people alphabetically by last name
+// const alpha = PEOPLE.sort((lastOne, nextOne) => {
+//     const [aLast, aFirst] = lastOne.split(', ');
+//     const [bLast, bFirst] = nextOne.split(', ');
+//     return aLast > bLast ? 1 : -1;
+// });
+// console.log(alpha);
+
 console.log("------");
 
 // 7. Reduce Exercise
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
 console.log("Reduce Exercise");
+const counts = {};
+
+for (const num of data) {
+    counts[num] = counts[num] ? counts[num] + 1 : 1;
+}
+
+const TEST = data.reduce(function (obj, item) {
+    if (!obj[item]) {
+        obj[item] = 0
+    }
+    obj[item]++
+    console.log('obj[item]', obj[item])
+    return obj
+}, {})
+console.log('TEST', TEST)
+
+console.log(counts);
 console.log("------");
 
 // // 8. create a list of Boulevards in Paris that contain 'de' anywhere in the name
