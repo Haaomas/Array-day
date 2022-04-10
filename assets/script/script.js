@@ -33,19 +33,20 @@ const PEOPLE = [
 // 1. Filter the list of INVENTORS for those who were born in the 1500's
 console.log("Array.prototype.filter()");
 const BORN_IN_1500 = INVENTORS.filter(INVENTOR => INVENTOR.year > 1500 && INVENTOR.year < 1600);
-console.log(BORN_IN_1500);
+console.log('BORN_IN_1500', BORN_IN_1500)
 console.log("------");
 
 
 // Array.prototype.map()
 // 2. Give us an array of the INVENTORS first and last names
 console.log("Array.prototype.map()");
-// Made in me
-const MAP_NAME = INVENTORS.map((x) => [x.first, x.last].join(" "));
+//Simple function
 // function firstAndLastName(x) {
 //     return [x.first, x.last].join(" ");
 // }
-console.log(MAP_NAME);
+// Compact function
+const MAP_NAME = INVENTORS.map((x) => [x.first, x.last].join(" "));
+console.log('MAP_NAME', MAP_NAME)
 // Made in Tiffany
 const NAMES = INVENTORS.map(INVENTOR => INVENTOR.first + " " + INVENTOR.last);
 console.log("------");
@@ -59,7 +60,7 @@ console.log("Array.prototype.sort()");
 // Version simple
 const BIRTH_SORT = INVENTORS.sort(orderByBirth)
 function orderByBirth(a, b) {
-    //Le a.year doit toujours être inférieur au b.year
+    //Le a.year inférieur au b.year pour un classement par ordre croissant 
     return a.year - b.year
 }
 console.log('BIRTH_SORT', BIRTH_SORT)
@@ -73,10 +74,8 @@ console.log("------");
 const INITIAL_VALUE = 0;
 const YEARS_LIVED = INVENTORS.map(INVENTOR => INVENTOR.passed - INVENTOR.year);
 console.log('YEARS_LIVED', YEARS_LIVED)
-const YEARS_TOGETHER = YEARS_LIVED.reduce((previousValue, currentValue) => previousValue + currentValue,
-    INITIAL_VALUE
-);
-console.log('YEARS_TOGETHER', `Il ont vécu un total de ${YEARS_TOGETHER} ans`)
+const YEARS_TOGETHER = YEARS_LIVED.reduce((previousValue, currentValue) => previousValue + currentValue, INITIAL_VALUE);
+console.log(`Il ont vécu un total de ${YEARS_TOGETHER} ans`)
 
 
 // 5. Sort the INVENTORS by years lived
@@ -87,8 +86,8 @@ const SORT_YEARS_LIVED = INVENTORS.sort((a, b) => {
     return aFull - bFull
 })
 console.log('SORT_YEARS_LIVED', SORT_YEARS_LIVED)
-//Classement uniquement par années s
-const ONLY_SORT_YEARS_LIVED = YEARS_LIVED.sort((a, b) => a - b)
+//Classement uniquement par années
+// const ONLY_SORT_YEARS_LIVED = YEARS_LIVED.sort((a, b) => a - b)
 // console.log('ONLY_SORT_YEARS_LIVED', ONLY_SORT_YEARS_LIVED)
 console.log("------");
 
@@ -97,42 +96,25 @@ console.log("------");
 console.log("Sort Exercise");
 let sortPeople = PEOPLE.sort();
 console.log('sortPeople', sortPeople)
-
-// // 7. sort Exercise (Pas compris pourquoi du comment)
-// // Sort the people alphabetically by last name
-// const alpha = PEOPLE.sort((lastOne, nextOne) => {
-//     const [aLast, aFirst] = lastOne.split(', ');
-//     const [bLast, bFirst] = nextOne.split(', ');
-//     return aLast > bLast ? 1 : -1;
-// });
-// console.log(alpha);
-
 console.log("------");
 
 // 7. Reduce Exercise
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
 console.log("Reduce Exercise");
-const counts = {};
-
+//First version 
+const countsArrayOne = {};
 for (const num of data) {
-    counts[num] = counts[num] ? counts[num] + 1 : 1;
+    countsArrayOne[num] = countsArrayOne[num] ? countsArrayOne[num] + 1 : 1;
 }
-
-const TEST = data.reduce(function (obj, item) {
+console.log('countsArrayOne', countsArrayOne)
+//Second version 
+const countsArrayArrayTwo = data.reduce(function (obj, item) {
     if (!obj[item]) {
         obj[item] = 0
     }
     obj[item]++
-    console.log('obj[item]', obj[item])
     return obj
 }, {})
-console.log('TEST', TEST)
-
-console.log(counts);
+console.log('countsArrayArrayTwo', countsArrayArrayTwo)
 console.log("------");
-
-// // 8. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-// // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-// console.log("Create a list of Boulevards in Paris that contain 'de' anywhere in the name");
-// console.log("------");
